@@ -1,8 +1,8 @@
 import { Product } from '../types/Product'
 import { BaseDatabase } from './BaseDatabase'
 
-export class ProductDatabase extends BaseDatabase {
-  public async createList(product: Product) {
+export class ProductsDatabase extends BaseDatabase {
+  public async insertList(product: Product) {
     try {
       await BaseDatabase.connection('produts_amaro').insert({
         id: product.getId(),
