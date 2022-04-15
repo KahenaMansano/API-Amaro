@@ -20,18 +20,15 @@ export async function createList(req: Request, res: Response) {
     }
 
     const productsDatabase = new ProductsDatabase()
-    const productExemple = list[0]
-    const productExist = await productsDatabase.findProductByID(
-      productExemple.id
-    )
+    // const productExemple = list[0]
+    // const productExist = await productsDatabase.findProduct(productExemple.id)
 
-    if (productExist) {
-      res.status(409).send('Essa lista já foi cadastrada!')
-    }
+    // if (productExist) {
+    //   res.status(409).send('Essa lista possui itens repetidos.')
+    // }
 
     await productsDatabase.insertList(req.body)
-
-    res.status(200).send({ message: 'Lista criada com sucesso!' })
+    res.status(200).send({ message: 'Lista inserida com sucesso!' })
   } catch (error: any) {
     res.status(400).send(error.message)
   }

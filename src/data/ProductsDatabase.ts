@@ -16,7 +16,7 @@ export class ProductsDatabase extends BaseDatabase {
     }
   }
 
-  public async findProductByID(id: string): Promise<Product> {
+  public async findProduct(id: string): Promise<Product> {
     try {
       const product = await BaseDatabase.connection('produts_amaro')
         .select('*')
