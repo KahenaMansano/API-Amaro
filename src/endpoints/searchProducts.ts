@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import { ProductsDatabase } from '../data/ProductsDatabase'
 
-export async function getProducts(req: Request, res: Response) {
+export async function searchProducts(req: Request, res: Response) {
   try {
-    const { id, name, type } = req.body
+    const { id, name, type } = req.params
 
     if (!id && !name && !type) {
       res
@@ -22,8 +22,8 @@ export async function getProducts(req: Request, res: Response) {
     }
 
     const productsDatabase = new ProductsDatabase()
-    await productsDatabase.findProduct(req.body)
-    res.status(200).send({ message: `Resultado da busca por ${req.body}:` })
+    await productsDatabase.findProduct(req.params)
+    res.status(200).send({ message: `Resultado da busca por ${req.params}:` })
   } catch (error: any) {
     throw new Error(error.sqlMessage || error.message)
   }

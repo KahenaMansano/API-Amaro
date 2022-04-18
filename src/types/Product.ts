@@ -1,3 +1,13 @@
+export class Data {
+  constructor(
+    id: string,
+    name: string,
+    value: number,
+    description: string,
+    type: string
+  ) {}
+}
+
 export class Product {
   constructor(
     private id: string,
