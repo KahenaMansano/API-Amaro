@@ -6,8 +6,6 @@ import './knex'
 
 dotenv.config()
 
-// connectDB()
-
 export const app: Express = express()
 
 app.use(express.json())

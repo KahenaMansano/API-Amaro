@@ -1,12 +1,12 @@
-import { Data } from '../types/Product'
-import knex, { Knex } from 'knex'
-// import { BaseDatabase } from './BaseDatabase'
+import Product from '../models/Product'
 
-export class ProductsDatabase {
-  public async insertList(data: Data): Promise<void> {
-    const dataProducts = [{ data }]
+import { BaseDatabase } from './BaseDatabase'
+
+export class ProductsDatabase extends BaseDatabase {
+  public async insertList(data: Product): Promise<void> {
+    const dataProducts = data
     try {
-      await knex('products_api_amaro').jsonInsert(dataProducts)
+      BaseDatabase.connection('products_api_amaro').insert(dataProducts)
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message)
     }

@@ -1,12 +1,10 @@
-import express, { Express } from 'express'
-import { insertProduct, searchProduct } from '../controllers/products'
+import express from 'express'
+import { insertProducts } from '../controllers/insertProducts'
+import { searchProducts } from '../controllers/searchProducts'
 
 const router = express.Router()
 
-router.route('/').get(searchProduct).post(insertProduct)
-
-router.route('/:productId').get((req, res) => {
-  res.send('productId productId')
-})
+router.route('/insertList').post(insertProducts)
+router.route('/search').get(searchProducts)
 
 export default router

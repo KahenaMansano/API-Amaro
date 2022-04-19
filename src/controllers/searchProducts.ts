@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
-import { ProductsDatabase } from '../data/ProductsDatabase'
+import knex from '../knex'
 
 export async function searchProducts(req: Request, res: Response) {
   try {
-    const { id, name, type } = req.params
+    let query: any = {}
 
-    if (!id && !name && !type) {
+    if (!query.id && !query.name && !query.type) {
       res
         .status(400)
         .send(
@@ -13,7 +13,11 @@ export async function searchProducts(req: Request, res: Response) {
         )
     }
 
-    if ((id && name) || (id && type) || (name && type)) {
+    if (
+      (query.id && query.name) ||
+      (query.id && query.type) ||
+      (query.name && query.type)
+    ) {
       res
         .status(400)
         .send(
@@ -21,10 +25,14 @@ export async function searchProducts(req: Request, res: Response) {
         )
     }
 
-    const productsDatabase = new ProductsDatabase()
-    await productsDatabase.findProduct(req.params)
-    res.status(200).send({ message: `Resultado da busca por ${req.params}:` })
+    Object.keys(req.query).forEach(key => {
+      const val = req.query[key]
+      if (val) query[key] = val
+    })
+
+    const results = await knex('products_api_amaro').where(`${query}`)
+    res.status(201).send({ message: 'Produto(s) encontrados:', results })
   } catch (error: any) {
-    throw new Error(error.sqlMessage || error.message)
+    res.status(500).send(error.message)
   }
 }
