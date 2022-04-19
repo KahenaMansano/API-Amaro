@@ -2,16 +2,16 @@ import express, { Express } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { AddressInfo } from 'net'
+import './knex'
 
 dotenv.config()
 
+// connectDB()
+
 export const app: Express = express()
+
 app.use(express.json())
 app.use(cors())
-
-app.get('/', (req, res) => {
-  res.send('oi')
-})
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
