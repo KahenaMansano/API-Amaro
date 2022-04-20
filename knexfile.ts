@@ -11,8 +11,7 @@ const config: { [key: string]: Knex.Config } = {
       port: 3306,
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database: process.env.DB_NAME,
-      debug: true
+      database: process.env.DB_NAME
     }
   },
 

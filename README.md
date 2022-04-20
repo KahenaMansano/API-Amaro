@@ -4,7 +4,7 @@
 
 ### Criação de API para cadastro e consulta de produtos
 
-Features:
+Documentação [API-produtos](https://documenter.getpostman.com/view/18388100/Uyr7JKGX), para:
 
 #### End-point para inserção de dados
 
