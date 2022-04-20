@@ -16,6 +16,6 @@ Documentação [API-produtos](https://documenter.getpostman.com/view/18388100/Uy
 - [x] Pode ser consultado por: id, nome ou tags. Caso a consulta seja por uma tag ou nome,
       deve listar todos os produtos com aquela respectiva busca, pode ser feito em um ou mais end-points.
 
-#### Heroku
+### Heroku
 
 [API-produtos](https://amaro-api.herokuapp.com/products/search)
