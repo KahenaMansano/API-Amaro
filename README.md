@@ -4,7 +4,7 @@
 
 ### Criação de API para cadastro e consulta de produtos
 
-Features:
+Documentação [API-produtos](https://documenter.getpostman.com/view/18388100/Uyr7JKGX), para:
 
 #### End-point para inserção de dados
 
@@ -32,7 +32,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/>
+$ git clone <https://github.com/KahenaMansano/API-Amaro.git>
 
 # Acesse a pasta do projeto
 

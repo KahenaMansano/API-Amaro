@@ -1,5 +1,4 @@
 import { app } from './app'
-import { createList } from './endpoints/createList'
+import productsRoutes from './routes/products'
 
-app.post('/list', createList)
-// app.get('/list/searc', searchProducts)
+app.use('/products', productsRoutes)
